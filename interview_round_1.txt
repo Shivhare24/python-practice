@@ -1,0 +1,65 @@
+Development skills - python/Django (DRF)
+Database skills - Working knowledge MYSQL
+Debugging and Analytical skills - debugging and proficient searching abilities
+Problem solving skills - data structure & algorithm
+Soft Skills - Communication and logical thinking
+
+python :-
+    1. key differences between __call__, __init__, and __new__:
+    1. Generators
+    2. decorators 
+    3. Context Manager
+
+MySQL :-
+    1. Given an Employee table with column Id, Emp_name, Emp_salary, Emp_age.
+        write a sql query that return the emp_name with 2nd largest salary.
+    2. Write a query for a column addition in MySQL.
+        ALTER TABLE table_name ADD COLUMN column_name column_definition
+    3. What are the different ways to join tables in MySQL
+        Inner Join, Left Join, Right Join, Cross Join 
+
+GIT : 
+    1. What does git clone do
+    2. What does the command git config do
+    3. What is a conflict
+
+
+# Decorator example
+        def my_decorator(func):
+            def wrapper():
+                print("Something before the function.")
+                func()
+                print("Something after the function.")
+            return wrapper
+
+        @my_decorator
+        def say_hello():
+            print("Hello!")
+
+        say_hello()
+
+class MyDecorator:
+    def __init__(self, function):
+        self.function = function
+     
+    def __call__(self):
+ 
+        # We can add some code 
+        # before function call
+ 
+        self.function()
+ 
+        # We can also add some code
+        # after function call.
+ 
+ 
+# adding class decorator to the function
+@MyDecorator
+def function():
+    print("GeeksforGeeks")
+ 
+function()
+
+__new__ is a static method that is called when a new instance of a class is created. It is responsible for allocating memory for the new object and returning it. The default implementation of __new__ simply calls the __new__ method of the superclass. However, it is possible to override __new__ to create custom behavior. For example, __new__ could be used to create a singleton class, which is a class that can only have one instance.
+__init__ is an instance method that is called after __new__ and is responsible for initializing the attributes of the new object. The default implementation of __init__ simply does nothing. However, it is possible to override __init__ to initialize the attributes of the new object. For example, __init__ could be used to initialize the name and age of a new Person object.
+__call__ is a special method that is called when an object is treated as a function. The default implementation of __call__ simply raises a TypeError exception. However, it is possible to override __call__ to define custom behavior. For example, __call__ could be used to define a function that prints the name of the object when it is called.

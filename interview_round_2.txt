@@ -1,0 +1,85 @@
+Development skills - python/Django (DRF)
+Database and version control - MYSQL, Github
+System Design skills - API design, development, architecture
+DevOps skills - CI/CD, AWS
+Problem solving skills - data structure & algorithm
+Full Stack Development - understanding of full Stack
+Managerial skills - JIRA, sprint planning, retrospective, stand-ups
+Debugging and Analytical skills - debugging and proficient searching abilities
+Soft Skills - Communication and logical thinking
+
+
+python:
+    Meta Classes
+    Monkey Patching
+
+Django:
+    Custom Django Middleware 
+        Called during request:
+            process_request(request)
+            process_view(request, view_func, view_args, view_kwargs)
+        Called during response:
+            process_exception(request, exception) (only if the view raised an exception)
+            process_template_response(request, response) (only for template responses)
+            process_response(request, response)
+
+        MIDDLEWARE_CLASSES = [
+            'django.middleware.security.SecurityMiddleware',
+            'django.contrib.sessions.middleware.SessionMiddleware',
+            'django.middleware.common.CommonMiddleware',
+            'django.middleware.csrf.CsrfViewMiddleware',
+            'django.contrib.auth.middleware.AuthenticationMiddleware',
+            'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+            'django.contrib.messages.middleware.MessageMiddleware',
+            'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        ]
+    
+MYSQL :-
+    1. WINDOW functions - RANK
+    2. find 3 largest customer who made biggest purchases in year 2023 - Table [Order] : order_id, customer_id, order_date, order_amount.
+        select cutomer_id, sum(order_amount) as total from orders
+        where order_date between '2012-03-11 00:00:00' and '2012-05-11 23:59:00' 
+        group by customer_id
+        order by total desc
+        limit 3;
+
+GIT:
+    1. What has to be run to squash multiple commits (last N) into a single commit
+    2. git stash apply vs git stash pop
+    3. How will you resolve conflict in Git
+    4. What is the functionality of “git cherry-pick” command
+
+class SingletonMeta(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(SingletonMeta, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+class MySingleton(metaclass=SingletonMeta):
+    pass
+
+# Create two instances of MySingleton
+singleton1 = MySingleton()
+singleton2 = MySingleton()
+
+# Check if the two instances are the same
+print(singleton1 is singleton2)
+
+class Foo:
+    def show(self):
+        print('hi')
+
+def add_attribute(self):
+    self.z = 9
+
+Test = type('Test', (Foo,), {'x':5, "add_attribute": add_attribute})
+t = Test()
+t.add_attribute()
+print(t.z)
+
+Class Test:
+    pass
+
+Test = type('Test', (), {})
