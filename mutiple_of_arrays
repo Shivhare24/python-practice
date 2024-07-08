@@ -1,0 +1,13 @@
+def multiple_of(arr):
+    result = []
+    for i in range(len(arr)):
+        x=1
+        for id, value in enumerate(arr):
+            if i != id:
+                x*=value
+        result.append(x)        
+    print(result)
+
+if __name__ == '__main__':
+    arr = [1,2,3,4]
+    multiple_of(arr)
